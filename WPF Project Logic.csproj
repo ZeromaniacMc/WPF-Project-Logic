@@ -45,7 +45,8 @@
   <ItemGroup>
     <Compile Include="Agency\Validation.cs" />
     <Compile Include="Client\Validation.cs" />
-    <Compile Include="Common\BlockType.cs" />
+    <Compile Include="Common\DataType.cs" />
+    <Compile Include="Company\Validation.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project\Validation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
