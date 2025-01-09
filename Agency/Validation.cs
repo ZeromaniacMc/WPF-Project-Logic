@@ -22,6 +22,7 @@ namespace WPF_Project_Logic.Agency {
          *          street number = ubyte
          *          zip = length < 16, only num
          *          province = string
+         *          TODO: check out documentation about culture and iso
          *          country = check culture using iso standards
          *      
          */
