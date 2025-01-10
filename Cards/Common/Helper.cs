@@ -1,7 +1,7 @@
 ﻿using System;
 
 namespace WPF_Project_Logic.Cards.Common.Helper {
-    internal class Helper {
+    public static class Helper {
 
 
         /* user input from console helper
@@ -9,13 +9,13 @@ namespace WPF_Project_Logic.Cards.Common.Helper {
          * generate id, verify id does not already exist (database call)
          */
 
-        public int generateID() {
+        public static int generateID() {
             Random random = new Random();
             int id = random.Next(1, 8);
             return id;
         }
 
-        public bool checkIsIdUnique(int id) {
+        public static bool checkIsIdUnique(int id) {
         return true;
         }
     }
