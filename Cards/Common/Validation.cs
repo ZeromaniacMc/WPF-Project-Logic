@@ -1,11 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
-namespace WPF_Project_Logic.Agency {
+namespace WPF_Project_Logic.Cards.Common.Agency {
     internal class Validation {
+
+        /* Repetitive needs
+         * date to string
+         * string check not null or empty
+         * string forbid funky characters like brackets etc using regex?
+         * id generation
+         * uniform string length for names, street names, province and emails
+         */
 
         /* Rules for agency entries
          * name, id, email and address and 1 contact are not optional
@@ -27,12 +31,6 @@ namespace WPF_Project_Logic.Agency {
          *      
          */
 
-        /* Repetitive needs
-         * date to string
-         * string check not null or empty
-         * string forbid funky characters like brackets etc using regex?
-         * id generation
-         * uniform string length for names, street names, province and emails
-         */
+
     }
 }

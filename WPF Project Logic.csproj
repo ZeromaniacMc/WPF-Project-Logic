@@ -43,12 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Agency\Validation.cs" />
-    <Compile Include="Client\Validation.cs" />
-    <Compile Include="Common\DataType.cs" />
-    <Compile Include="Company\Validation.cs" />
+    <Compile Include="Cards\Agency\Agency.cs" />
+    <Compile Include="Cards\Client\Client.cs" />
+    <Compile Include="Cards\Common\Card.cs" />
+    <Compile Include="Cards\Common\Validation.cs" />
+    <Compile Include="Cards\Common\Helper.cs" />
+    <Compile Include="Cards\Company\Company.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Project\Validation.cs" />
+    <Compile Include="Cards\Project\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

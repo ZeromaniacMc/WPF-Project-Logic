@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPF_Project_Logic.Company {
-    internal class Validation {
+namespace WPF_Project_Logic.Cards.Client {
+    internal class Client {
     }
 }
