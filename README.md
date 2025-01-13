@@ -103,13 +103,12 @@ Events: ClientCreate, ClientEdit, ClientUpdate
 PROJECT - STATUS # The status should be easily visible
 ├── project name
 ├── project id
-├── project email
-├── project address
-├── project associated client
 ├── project dated notes
+├── project associated client
+│   ├── client name, email, address, phone
 ├── LOGGING PER {SELFEMPLOYEE} # logs need to be separated in case a second or third person also worked on this
 │   ├── date project received               start date dd/mm/yyy - end date dd/mm/yyy = total hours
-│   ├── {SELFEMPLOYEE} LOG ADD/EDIT
+│   └── {SELFEMPLOYEE} LOG ADD/EDIT
 │      ├── start date dd/mm/yyy
 │      ├── end date dd/mm/yyy
 │      ├── [ ] Override hours (if true, unlock field with num input)
