@@ -22,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,9 +48,11 @@
     <Compile Include="Cards\Agency\Agency.cs" />
     <Compile Include="Cards\Client\Client.cs" />
     <Compile Include="Cards\Common\Card.cs" />
+    <Compile Include="Cards\Common\DataType.cs" />
     <Compile Include="Cards\Common\Validation.cs" />
     <Compile Include="Cards\Common\Helper.cs" />
     <Compile Include="Cards\Company\Company.cs" />
+    <Compile Include="DataFeeder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Cards\Project\Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -56,6 +60,8 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="XML Cheat Sheet.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

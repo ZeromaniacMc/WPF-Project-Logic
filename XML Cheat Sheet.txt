@@ -1,0 +1,18 @@
+Summary:
+<summary>
+General summary
+</summary>
+
+Parameters:
+<param name="right">
+The right operand of the addition.
+</param>
+
+Returns:
+<returns>What</returns>
+
+Remarks:
+<remarks> Some useful foot note</remarks>
+
+Exception:
+<exception cref="System.OverflowException"></exception>

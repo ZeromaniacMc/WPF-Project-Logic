@@ -1,7 +1,4 @@
-﻿
-
-using System;
-using System.Linq;
+﻿using System;
 using System.Text.RegularExpressions;
 
 namespace WPF_Project_Logic.Cards.Common.Agency {
@@ -34,6 +31,9 @@ namespace WPF_Project_Logic.Cards.Common.Agency {
          *          country = check culture using iso standards
          *      
          */
+
+        // TODO: Switch statement, use DataType enums as identifier, to validate input as each type needs differently
+        // assempbled validations in and under different subgroups of data.
 
 
         // Regular expression that matches only Latin letters (including Croatian characters) and spaces
