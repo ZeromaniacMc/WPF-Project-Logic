@@ -1,4 +1,6 @@
-﻿using WPF_Project_Logic.Cards.Common;
+﻿using System;
+using System.Collections.Generic;
+using WPF_Project_Logic.Cards.Common;
 using WPF_Project_Logic.Cards.Common.Card;
 
 namespace WPF_Project_Logic.Cards.Agency {
@@ -15,6 +17,11 @@ namespace WPF_Project_Logic.Cards.Agency {
         private int agencyId;
 
         /// <summary>
+        /// A List containing the address as generic objects
+        /// </summary>
+        private List<object> agencyAddress = new List<object>();
+
+        /// <summary>
         /// Getter and setter for the <c>Name</c>.
         /// </summary>
         public override string Name {
@@ -28,6 +35,15 @@ namespace WPF_Project_Logic.Cards.Agency {
         public override int ID {
             get { return agencyId; }
             set { agencyId = value; }
+        }
+
+        /// <summary>
+        /// Getter and setter for the <c>Adress</c> (Of type List). 
+        /// </summary>
+        public List<object> Adress
+        {
+            get { return agencyAddress; }
+            set { agencyAddress = value; }
         }
 
         /// <summary>

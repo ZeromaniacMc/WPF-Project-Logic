@@ -8,9 +8,9 @@ namespace WPF_Project_Logic
     // TODO: Nuke this class as soon as we have database access
     internal class DataFeeder {
 
-        static Client sampleClient;
-        static Project sampleProject;
-        static Agency sampleAgency;
+        static Client sampleClient = new Client("", -1);
+        static Project sampleProject = new Project("", -1);
+        static Agency sampleAgency = new Agency("",-1);
         
         /// <summary>
         /// A static Client for testing
@@ -40,9 +40,15 @@ namespace WPF_Project_Logic
         /// </summary>
         /// <returns>Agency Object</returns>
         public Agency BuildSampleAgency() {
-            sampleAgency.Name = "";
+            sampleAgency.Name = "Hello";
             sampleAgency.ID = Helper.generateID();
-        
+
+            sampleAgency.Adress.Add("Potočka");
+            sampleAgency.Adress.Add(61);
+            sampleAgency.Adress.Add(84260);
+            sampleAgency.Adress.Add("Križevci");
+            sampleAgency.Adress.Add("Hrvatska");
+
             return sampleAgency;
         }
     } 

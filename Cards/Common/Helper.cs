@@ -9,6 +9,11 @@ namespace WPF_Project_Logic.Cards.Common.Helper {
          * generate id, verify id does not already exist (database call)
          */
 
+        /// <summary>
+        /// A simple comma and space to be reused in all lists
+        /// </summary>
+        public static string listSeparator = ", ";
+
         public static int generateID() {
             Random random = new Random();
             int id = random.Next(1, 8);
