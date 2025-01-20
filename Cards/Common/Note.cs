@@ -16,22 +16,20 @@ namespace WPF_Project_Logic.Cards.Common
         /// <param name="noteContent"> The content of the note as string. </param>
         /// </summary>
         private string noteContent;
-        /// <summary>
-        /// Getter and setter for the <c>Title</c>.
-        /// </summary>
+
+
         public string Title
         {
             get { return noteTitle; }
             set { noteTitle = value; }
         }
-        /// <summary>
-        /// Getter and setter for the <c>Content</c>.
-        /// </summary>
+
         public string Content
         {
             get { return noteContent; }
             set { noteContent = value; }
         }
+
         /// <summary>
         /// Constructor for the Note class
         /// </summary>

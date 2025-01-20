@@ -1,19 +1,18 @@
 ﻿using System;
+using System.Collections.Generic;
 using WPF_Project_Logic.Cards.Common.Agency;
 
 namespace WPF_Project_Logic.Cards.Common.Card {
     public abstract class Card {
 
 
-        // This forces any class that inherits from 'Card' to define its own 'Name'.
-        public abstract string Name { get; set; }
+        public abstract Contact selfContact { get; set; }
         public abstract int Id { get; set; }
-       
-        // Assign the 'name' value in the subclass when it's created.
-        protected Card(string name, int id) {
+        public abstract List<Contact> additionalContacts { get; set; }
 
-        // Validate the name and get the validation result
-        string validationMessage = Validation.ValidateName(name);
+
+        // Assign the 'name' value in the subclass when it's created.
+        protected Card(Contact selfcontact, int id, List<Contact> additionalContacts) {
 
         }
     }

@@ -7,9 +7,10 @@ namespace WPF_Project_Logic.Cards.Agency {
     internal class Agency : Card {
 
         /// <summary>
-        /// <param name="agencyName"> The name of the agency as string. </param>
+        /// The agency themself.
+        /// We need not worry about the Address here, as it is already defined in the Contact class.
         /// </summary>
-        private string agencyName;
+        private Contact agencytSelf = new Contact("", "", "", "", new List<Address>());
 
         /// <summary>
         /// <param name="agencyId"> The automatically generated ID of the agency as int. </param>
@@ -17,15 +18,18 @@ namespace WPF_Project_Logic.Cards.Agency {
         private int agencyId;
 
         /// <summary>
-        /// A List containing the address as generic objects
+        /// A List of contacts for the agency
         /// </summary>
-        private List<object> agencyAddress = new List<object>();
+        private List<Contact> agencyContacts = new List<Contact>();
+
+        private readonly DataType dataType = DataType.Agency;
 
 
 
-        public override string Name {
-            get { return agencyName; }
-            set { agencyName = value; }
+        public override Contact selfContact
+        {
+            get { return agencytSelf; }
+            set { agencytSelf = value; }
         }
 
         public override int Id {
@@ -33,20 +37,22 @@ namespace WPF_Project_Logic.Cards.Agency {
             set { agencyId = value; }
         }
 
-        public List<object> Adress
+        // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
+        public override List<Contact> additionalContacts
         {
-            get { return agencyAddress; }
-            set { agencyAddress = value; }
+            get { return agencyContacts; }
+            set { agencyContacts = value; }
+        }
+
+        public DataType DataType
+        {
+            get { return dataType; }
+            // No setter! This is a read-only property.
         }
 
 
-        /// <summary>
-        /// Identifier of DataType as <c>Agency</c> via Enum. Used for validations in switch statements. 
-        /// </summary>
-        public DataType CardType { get; }
-        public Agency(string name, int id) : base(name, id)
+        public Agency(Contact selfContact, int id, List<Contact> additionalContacts) : base(selfContact, id, additionalContacts)
         {
-            CardType = DataType.Agency;
         }
     }
 }

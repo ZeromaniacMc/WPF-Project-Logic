@@ -10,19 +10,26 @@ namespace WPF_Project_Logic
     // TODO: Nuke this class as soon as we have database access
     internal class DataFeeder {
 
-        static Client sampleClient = new Client("", -1);
-        static Project sampleProject = new Project("", -1);
-        static Agency sampleAgency = new Agency("", -1);
-        public Contact sampleContact = new Contact("", "", "", "", new List<object>());
-        
+        Helper helper = new Helper();
+
+        static Project sampleProject = new Project();
+        static Client sampleClient = new Client(new Contact("", "", "", "", new List<Address>()), -1, new List<Contact>()); 
+        static Agency sampleAgency = new Agency(new Contact("","","","",new List<Address>()),-1,new List<Contact>());
+
+        public Contact sampleContact = new Contact("", "", "", "", new List<Address>());
+        public Address sampleAddress = new Address("", -1, -1, "", "");
+
         /// <summary>
         /// A static Client for testing
         /// </summary>
         /// <returns>Client Object</returns>
         public Client BuildSampleClient() {
-            sampleClient.Name = "RBA";
-            sampleClient.Id = Helper.generateID();
-            sampleClient.Email = "Svenk@Svenk.com";
+            sampleClient.selfContact.FirstName = "Svenk";
+            sampleClient.selfContact.LastName = "Svenk";
+            sampleClient.selfContact.Phone = "01255788957";
+            sampleClient.selfContact.Email = "schglibglob@gmail.com";
+
+            sampleClient.Id = helper.generateID();
 
             return sampleClient;
         }
@@ -33,7 +40,7 @@ namespace WPF_Project_Logic
         /// <returns>Project Object</returns>
         public Project BuildSampleProject() {
             sampleProject.Name = "RBA mobilno bankarstvo";
-            sampleProject.Id = Helper.generateID();
+            sampleProject.Id = helper.generateID();
 
             return sampleProject; 
         }
@@ -43,16 +50,13 @@ namespace WPF_Project_Logic
         /// </summary>
         /// <returns>Agency Object</returns>
         // TODO: Consider using the contact object here? Only ID would be needed outside of Contact object...
-        public Agency BuildSampleAgency() {
-            sampleAgency.Name = "Hello";
-            sampleAgency.Id = Helper.generateID();
-
-            sampleAgency.Adress.Add("Potočka");
-            sampleAgency.Adress.Add(61);
-            sampleAgency.Adress.Add(84260);
-            sampleAgency.Adress.Add("Križevci");
-            sampleAgency.Adress.Add("Hrvatska");
-
+        public Agency BuildSampleAgency()
+        {
+            // Build a new Contact object with data
+            Contact agencyContact = BuildSampleContact();
+            sampleAgency.selfContact = agencyContact;
+            sampleAgency.additionalContacts.Add(agencyContact); // Or build another contact if needed
+            sampleAgency.Id = helper.generateID();
             return sampleAgency;
         }
 
@@ -66,13 +70,18 @@ namespace WPF_Project_Logic
             sampleContact.Email = "blabla@gmail.de";
             sampleContact.Phone = "01255788957";
 
-            sampleContact.ContactAdress.Add("Potočka");
-            sampleContact.ContactAdress.Add(61);
-            sampleContact.ContactAdress.Add(84260);
-            sampleContact.ContactAdress.Add("Križevci");
-            sampleContact.ContactAdress.Add("Hrvatska");
-
             return sampleContact;
+        }
+
+        // An address to feed to the contact
+        public Address BuildSampleAddress()
+        {
+            sampleAddress.StreetName = "Potočka";
+            sampleAddress.StreetNumber = 61;
+            sampleAddress.ZipCode = 84260;
+            sampleAddress.City = "Križevci";
+            sampleAddress.Country = "Hrvatska";
+            return sampleAddress;
         }
     } 
 }

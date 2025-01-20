@@ -2,7 +2,8 @@
 using WPF_Project_Logic.Cards.Common.Card;
 
 namespace WPF_Project_Logic.Cards.Project {
-    public class Project : Card {
+    public class Project
+    {
 
         /// <summary>
         /// <param name="projectName"> The name of the project as string. </param>
@@ -19,14 +20,21 @@ namespace WPF_Project_Logic.Cards.Project {
         /// </summary>
         private Client.Client associatedClient;
 
+        /// <summary>
+        /// <param name="dataType"> The type of data associated with this project. </param>
+        /// </summary>
+        private readonly DataType dataType = DataType.Project;
 
 
-        public override string Name {
+
+        public string Name
+        {
             get { return projectName; }
             set { projectName = value; }
         }
 
-        public override int Id {
+        public int Id
+        {
             get { return projectId; }
             set { projectId = value; }
         }
@@ -41,17 +49,10 @@ namespace WPF_Project_Logic.Cards.Project {
             set { associatedClient = value; }
         }
 
-
-
-        /// <summary>
-        /// Identifier of DataType as <c>Project</c> via Enum. Used for validations in switch statements. 
-        /// </summary>
-        public DataType CardType { get; }
-
-        // This is where we pass the 'name' to the base class so the base class knows the 'name' value.
-        public Project(string name, int id) : base(name,id) {
-            CardType = DataType.Project;
+        public DataType DataType
+        {
+            get { return dataType; }
+            // No setter! This is a read-only property.
         }
-
     }
  }

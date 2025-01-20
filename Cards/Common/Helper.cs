@@ -1,23 +1,18 @@
 ﻿using System;
 
 namespace WPF_Project_Logic.Cards.Common.Helper {
-    public static class Helper {
+    public class Helper {
 
 
-        /* user input from console helper
-         * parse data types
-         * generate id, verify id does not already exist (database call)
-         */
+        private static readonly Random random = new Random();
 
         /// <summary>
         /// A simple comma and space to be reused in all lists
         /// </summary>
         public static string listSeparator = ", ";
 
-        public static int generateID() {
-            Random random = new Random();
-            int id = random.Next(1, 8);
-            return id;
+        public int generateID() {
+            return random.Next(1, 1000);
         }
 
         public static bool checkIsIdUnique(int id) {

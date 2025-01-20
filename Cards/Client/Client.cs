@@ -7,9 +7,11 @@ namespace WPF_Project_Logic.Cards.Client {
     public class Client : Card {
 
         /// <summary>
-        /// <param name="clientName"> The name of the client as string. </param>
+        /// The client themself.
+        /// We need not worry about the Address here, as it is already defined in the Contact class.
         /// </summary>
-        private string clientName;
+        private Contact clientSelf = new Contact("","","","",new List<Address>());
+        // TODO: ^ dummy address against not initialized error in the address class?
 
         /// <summary>
         /// <param name="clientId"> The automatically generated ID of the client as int. </param>
@@ -17,59 +19,56 @@ namespace WPF_Project_Logic.Cards.Client {
         private int clientId;
 
         /// <summary>
-        /// <param name="clientEmail"> The email address of the client as string. </param>
+        /// A List of contacts for the client
         /// </summary>
-        private string clientEmail;
-
-        /// <summary>
-        /// A List containing the address as generic objects
-        /// </summary>
-        private List<object> clientAddress = new List<object>();
+        private List<Contact> clientContacts = new List<Contact>();
 
         /// <summary>
         /// A DateTime object containing the date the client first hired the user
         /// </summary>
         private DateTime clientFirstHire = new DateTime();
 
+        private readonly DataType dataType = DataType.Client;
 
 
-        public override string Name {
-            get { return clientName; }
-            set { clientName = value; }
+
+        public override Contact selfContact 
+        {
+            get { return clientSelf; }
+            set { clientSelf = value; }
         }
 
-        public override int Id {
+        public override int Id
+        {
             get { return clientId; }
             set { clientId = value; }
         }
 
-        public string Email
+        // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
+        // This list describes people the user may contact who also work at the client (which is a company).
+        public override List<Contact> additionalContacts
         {
-            get { return clientEmail; }
-            set { clientEmail = value; }
+            get { return clientContacts; }
+            set { clientContacts = value; }
         }
 
-        public List<object> Address
-        {
-            get { return clientAddress; }
-            set { clientAddress = value; }
-        }
-
-        public DateTime FIRSTHIRE 
+        public DateTime firstHire 
         {
             get { return clientFirstHire; }
             set { clientFirstHire = value; }
         }
 
+        public DataType DataType
+        {
+            get { return dataType; }
+            // No setter! This is a read-only property.
+        }
 
-        /// <summary>
-        /// Identifier of DataType as <c>Client</c> via Enum. Used for validations in switch statements. 
-        /// </summary>
-        public DataType CardType { get; }
 
-        // This is where we pass the 'name' to the base class so the base class knows the 'name' value.
-        public Client(string name, int id) : base(name, id) {
-            CardType = DataType.Client;
+        // Assign selfcontact and id to the base class when it's created.
+        public Client(Contact selfContact, int id, List<Contact> additionalContacts) : base(selfContact, id, additionalContacts)
+        {
+
         }
     }
 }
