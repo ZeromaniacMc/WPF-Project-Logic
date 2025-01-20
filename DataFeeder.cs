@@ -49,13 +49,12 @@ namespace WPF_Project_Logic
         /// A static Agency for testing
         /// </summary>
         /// <returns>Agency Object</returns>
-        // TODO: Consider using the contact object here? Only ID would be needed outside of Contact object...
         public Agency BuildSampleAgency()
         {
             // Build a new Contact object with data
             Contact agencyContact = BuildSampleContact();
             sampleAgency.selfContact = agencyContact;
-            sampleAgency.additionalContacts.Add(agencyContact); // Or build another contact if needed
+            sampleAgency.additionalContacts.Add(agencyContact);
             sampleAgency.Id = helper.generateID();
             return sampleAgency;
         }

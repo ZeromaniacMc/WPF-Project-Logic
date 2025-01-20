@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPF_Project_Logic.Cards.Common
 {
-    internal class Note {
+    public class Note {
 
         /// <summary>
         /// <param name="noteTitle"> The title of the note as string. </param>
@@ -17,6 +17,7 @@ namespace WPF_Project_Logic.Cards.Common
         /// </summary>
         private string noteContent;
 
+        private DateTime noteDate = DateTime.Now;
 
         public string Title
         {
@@ -30,15 +31,22 @@ namespace WPF_Project_Logic.Cards.Common
             set { noteContent = value; }
         }
 
+        public DateTime NoteDate 
+        {
+            get { return noteDate; }
+            set { noteDate = value; }
+        }
+
         /// <summary>
         /// Constructor for the Note class
         /// </summary>
         /// <param name="title"> The title of the note as string. </param>
         /// <param name="content"> The content of the note as string. </param>
-        public Note(string title, string content)
+        public Note(string title, string content, DateTime date)
         {
             Title = title;
             Content = content;
+            NoteDate = date;
         }
     }
 }

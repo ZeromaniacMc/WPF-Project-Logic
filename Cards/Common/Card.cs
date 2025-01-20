@@ -10,10 +10,25 @@ namespace WPF_Project_Logic.Cards.Common.Card {
         public abstract int Id { get; set; }
         public abstract List<Contact> additionalContacts { get; set; }
 
+        public abstract List<Note> Notes { get; set; }
 
-        // Assign the 'name' value in the subclass when it's created.
-        protected Card(Contact selfcontact, int id, List<Contact> additionalContacts) {
 
+        protected Card(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> Notes)
+        {
+            this.selfContact = selfContact;
+            this.Id = id;
+            this.additionalContacts = additionalContacts;
+            this.Notes = Notes;
         }
+
+        protected Card(Contact selfContact, int id, List<Contact> additionalContacts)
+            : this(selfContact, id, additionalContacts, new List<Note>())
+        {
+            this.selfContact = selfContact;
+            this.Id = id;
+            this.additionalContacts = additionalContacts;
+        }
+
+        
     }
 }

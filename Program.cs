@@ -1,8 +1,6 @@
 ﻿using System;
 using WPF_Project_Logic.Cards.Project;
-using WPF_Project_Logic.Cards.Common.Helper;
 using WPF_Project_Logic.Cards.Agency;
-using System.Windows.Controls;
 using WPF_Project_Logic.Cards.Client;
 using WPF_Project_Logic.Cards.Common;
 

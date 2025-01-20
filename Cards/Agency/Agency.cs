@@ -10,7 +10,7 @@ namespace WPF_Project_Logic.Cards.Agency {
         /// The agency themself.
         /// We need not worry about the Address here, as it is already defined in the Contact class.
         /// </summary>
-        private Contact agencytSelf = new Contact("", "", "", "", new List<Address>());
+        private Contact agencySelf;
 
         /// <summary>
         /// <param name="agencyId"> The automatically generated ID of the agency as int. </param>
@@ -20,16 +20,20 @@ namespace WPF_Project_Logic.Cards.Agency {
         /// <summary>
         /// A List of contacts for the agency
         /// </summary>
-        private List<Contact> agencyContacts = new List<Contact>();
+        private List<Contact> agencyContacts;
+
+        /// <summary>
+        /// A List of notes for the agency where notes carry timestamp, header and description
+        /// </summary>
+        private List<Note> agencyNotes;
 
         private readonly DataType dataType = DataType.Agency;
 
 
-
         public override Contact selfContact
         {
-            get { return agencytSelf; }
-            set { agencytSelf = value; }
+            get { return agencySelf; }
+            set { agencySelf = value; }
         }
 
         public override int Id {
@@ -44,6 +48,12 @@ namespace WPF_Project_Logic.Cards.Agency {
             set { agencyContacts = value; }
         }
 
+        public override List<Note> Notes
+        {
+            get { return agencyNotes; }
+            set { agencyNotes = value; }
+        }
+
         public DataType DataType
         {
             get { return dataType; }
@@ -51,8 +61,14 @@ namespace WPF_Project_Logic.Cards.Agency {
         }
 
 
-        public Agency(Contact selfContact, int id, List<Contact> additionalContacts) : base(selfContact, id, additionalContacts)
+        public Agency(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> Notes) : base(selfContact, id, additionalContacts, Notes)
         {
+
+        }
+        public Agency(Contact selfContact, int id, List<Contact> additionalContacts)
+        : this(selfContact, id, additionalContacts, new List<Note>())
+        {
+            // Calls base constructor, provides an empty list of notes as default.
         }
     }
 }

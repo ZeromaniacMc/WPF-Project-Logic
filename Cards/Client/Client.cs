@@ -10,8 +10,7 @@ namespace WPF_Project_Logic.Cards.Client {
         /// The client themself.
         /// We need not worry about the Address here, as it is already defined in the Contact class.
         /// </summary>
-        private Contact clientSelf = new Contact("","","","",new List<Address>());
-        // TODO: ^ dummy address against not initialized error in the address class?
+        private Contact clientSelf;
 
         /// <summary>
         /// <param name="clientId"> The automatically generated ID of the client as int. </param>
@@ -21,7 +20,7 @@ namespace WPF_Project_Logic.Cards.Client {
         /// <summary>
         /// A List of contacts for the client
         /// </summary>
-        private List<Contact> clientContacts = new List<Contact>();
+        private List<Contact> clientContacts;
 
         /// <summary>
         /// A DateTime object containing the date the client first hired the user
@@ -29,6 +28,11 @@ namespace WPF_Project_Logic.Cards.Client {
         private DateTime clientFirstHire = new DateTime();
 
         private readonly DataType dataType = DataType.Client;
+
+        /// <summary>
+        /// A List of notes for the client where notes carry timestamp, header and description
+        /// </summary>
+        private List<Note> clientNotes;
 
 
 
@@ -58,6 +62,12 @@ namespace WPF_Project_Logic.Cards.Client {
             set { clientFirstHire = value; }
         }
 
+        public override List<Note> Notes
+        {
+            get { return clientNotes; }
+            set { clientNotes = value; }
+        }
+
         public DataType DataType
         {
             get { return dataType; }
@@ -65,10 +75,16 @@ namespace WPF_Project_Logic.Cards.Client {
         }
 
 
-        // Assign selfcontact and id to the base class when it's created.
+        
         public Client(Contact selfContact, int id, List<Contact> additionalContacts) : base(selfContact, id, additionalContacts)
         {
 
         }
+
+        public Client(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> notes) : base(selfContact, id, additionalContacts, notes)
+        {
+            // Calls base constructor, provides an empty list of notes as default.
+        }
     }
 }
+

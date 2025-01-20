@@ -1,5 +1,4 @@
 ﻿using WPF_Project_Logic.Cards.Common;
-using WPF_Project_Logic.Cards.Common.Card;
 
 namespace WPF_Project_Logic.Cards.Project {
     public class Project
@@ -54,5 +53,7 @@ namespace WPF_Project_Logic.Cards.Project {
             get { return dataType; }
             // No setter! This is a read-only property.
         }
+
+        // TODO: 2 constructors, one with and one without notes
     }
  }
