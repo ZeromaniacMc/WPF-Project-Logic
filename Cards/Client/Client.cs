@@ -1,4 +1,6 @@
-﻿using WPF_Project_Logic.Cards.Common;
+﻿using System;
+using System.Collections.Generic;
+using WPF_Project_Logic.Cards.Common;
 using WPF_Project_Logic.Cards.Common.Card;
 
 namespace WPF_Project_Logic.Cards.Client {
@@ -20,34 +22,50 @@ namespace WPF_Project_Logic.Cards.Client {
         private string clientEmail;
 
         /// <summary>
-        /// Getter and setter for the <c>Name</c>.
+        /// A List containing the address as generic objects
         /// </summary>
+        private List<object> clientAddress = new List<object>();
+
+        /// <summary>
+        /// A DateTime object containing the date the client first hired the user
+        /// </summary>
+        private DateTime clientFirstHire = new DateTime();
+
+
+
         public override string Name {
             get { return clientName; }
             set { clientName = value; }
         }
 
-        /// <summary>
-        /// Getter and setter for the <c>Id</c>.
-        /// </summary>
-        public override int ID {
+        public override int Id {
             get { return clientId; }
             set { clientId = value; }
         }
 
-        /// <summary>
-        /// Getter and setter for the <c>Email</c>.
-        /// </summary>
-        public string EMAIL
+        public string Email
         {
             get { return clientEmail; }
             set { clientEmail = value; }
         }
 
+        public List<object> Address
+        {
+            get { return clientAddress; }
+            set { clientAddress = value; }
+        }
+
+        public DateTime FIRSTHIRE 
+        {
+            get { return clientFirstHire; }
+            set { clientFirstHire = value; }
+        }
+
+
         /// <summary>
         /// Identifier of DataType as <c>Client</c> via Enum. Used for validations in switch statements. 
         /// </summary>
-        public DataType CardType { get; set; }
+        public DataType CardType { get; }
 
         // This is where we pass the 'name' to the base class so the base class knows the 'name' value.
         public Client(string name, int id) : base(name, id) {

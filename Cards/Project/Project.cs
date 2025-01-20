@@ -19,18 +19,14 @@ namespace WPF_Project_Logic.Cards.Project {
         /// </summary>
         private Client.Client associatedClient;
 
-        /// <summary>
-        /// Getter and setter for the <c>Name</c>.
-        /// </summary>
+
+
         public override string Name {
             get { return projectName; }
             set { projectName = value; }
         }
 
-        /// <summary>
-        /// Getter and setter for the <c>Id</c>.
-        /// </summary>
-        public override int ID {
+        public override int Id {
             get { return projectId; }
             set { projectId = value; }
         }
@@ -39,17 +35,18 @@ namespace WPF_Project_Logic.Cards.Project {
         /// Client associated with the current Project 
         /// </summary>
         /// <returns>Client Object from database lookup, else default set</returns>
-
-        public Client.Client ASSOCIATEDCLIENT
+        public Client.Client AssociatedClient
         {
             get { return associatedClient; }
             set { associatedClient = value; }
         }
 
+
+
         /// <summary>
         /// Identifier of DataType as <c>Project</c> via Enum. Used for validations in switch statements. 
         /// </summary>
-        public DataType CardType { get; set; }
+        public DataType CardType { get; }
 
         // This is where we pass the 'name' to the base class so the base class knows the 'name' value.
         public Project(string name, int id) : base(name,id) {

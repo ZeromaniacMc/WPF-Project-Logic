@@ -49,7 +49,9 @@
     <Compile Include="Cards\Agency\Agency.cs" />
     <Compile Include="Cards\Client\Client.cs" />
     <Compile Include="Cards\Common\Card.cs" />
+    <Compile Include="Cards\Common\Contact.cs" />
     <Compile Include="Cards\Common\DataType.cs" />
+    <Compile Include="Cards\Common\Note.cs" />
     <Compile Include="Cards\Common\Validation.cs" />
     <Compile Include="Cards\Common\Helper.cs" />
     <Compile Include="Cards\Company\Company.cs" />

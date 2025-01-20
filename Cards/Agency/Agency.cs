@@ -21,35 +21,29 @@ namespace WPF_Project_Logic.Cards.Agency {
         /// </summary>
         private List<object> agencyAddress = new List<object>();
 
-        /// <summary>
-        /// Getter and setter for the <c>Name</c>.
-        /// </summary>
+
+
         public override string Name {
             get { return agencyName; }
             set { agencyName = value; }
         }
 
-        /// <summary>
-        /// Getter and setter for the <c>Id</c>.
-        /// </summary>
-        public override int ID {
+        public override int Id {
             get { return agencyId; }
             set { agencyId = value; }
         }
 
-        /// <summary>
-        /// Getter and setter for the <c>Adress</c> (Of type List). 
-        /// </summary>
         public List<object> Adress
         {
             get { return agencyAddress; }
             set { agencyAddress = value; }
         }
 
+
         /// <summary>
         /// Identifier of DataType as <c>Agency</c> via Enum. Used for validations in switch statements. 
         /// </summary>
-        public DataType CardType { get; set; }
+        public DataType CardType { get; }
         public Agency(string name, int id) : base(name, id)
         {
             CardType = DataType.Agency;
