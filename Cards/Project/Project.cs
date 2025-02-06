@@ -1,4 +1,5 @@
-﻿using WPF_Project_Logic.Cards.Common;
+﻿using System.Collections.Generic;
+using WPF_Project_Logic.Cards.Common;
 
 namespace WPF_Project_Logic.Cards.Project {
     public class Project
@@ -54,6 +55,14 @@ namespace WPF_Project_Logic.Cards.Project {
             // No setter! This is a read-only property.
         }
 
-        // TODO: 2 constructors, one with and one without notes
+        public Project(string projectName, int projectId, Client.Client associatedClient, List<Note> notes)
+        {
+
+        }
+
+        public Project(string projectName, int projectId, Client.Client associatedClient)
+        {
+
+        }
     }
  }

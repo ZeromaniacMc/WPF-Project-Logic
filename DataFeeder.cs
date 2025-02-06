@@ -12,7 +12,7 @@ namespace WPF_Project_Logic
 
         Helper helper = new Helper();
 
-        static Project sampleProject = new Project();
+        static Project sampleProject = new Project("",-1,null);
         static Client sampleClient = new Client(new Contact("", "", "", "", new List<Address>()), -1, new List<Contact>()); 
         static Agency sampleAgency = new Agency(new Contact("","","","",new List<Address>()),-1,new List<Contact>());
 
@@ -28,6 +28,8 @@ namespace WPF_Project_Logic
             sampleClient.selfContact.LastName = "Svenk";
             sampleClient.selfContact.Phone = "01255788957";
             sampleClient.selfContact.Email = "schglibglob@gmail.com";
+            sampleClient.selfContact.Equals(sampleContact);
+            sampleClient.Notes.Add(new Note("First Note", "This is the first note",System.DateTime.Now));
 
             sampleClient.Id = helper.generateID();
 
@@ -41,6 +43,7 @@ namespace WPF_Project_Logic
         public Project BuildSampleProject() {
             sampleProject.Name = "RBA mobilno bankarstvo";
             sampleProject.Id = helper.generateID();
+            sampleProject.AssociatedClient = BuildSampleClient();
 
             return sampleProject; 
         }
@@ -68,6 +71,7 @@ namespace WPF_Project_Logic
             sampleContact.LastName = "Svenk";
             sampleContact.Email = "blabla@gmail.de";
             sampleContact.Phone = "01255788957";
+            sampleContact.ContactAdress.Add(BuildSampleAddress());
 
             return sampleContact;
         }
