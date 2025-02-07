@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="Cards\Agency\Agency.cs" />
     <Compile Include="Cards\Client\Client.cs" />
+    <Compile Include="Cards\Common\Address.cs" />
     <Compile Include="Cards\Common\Card.cs" />
     <Compile Include="Cards\Common\Contact.cs" />
     <Compile Include="Cards\Common\DataType.cs" />

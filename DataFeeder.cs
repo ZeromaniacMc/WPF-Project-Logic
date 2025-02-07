@@ -24,6 +24,7 @@ namespace WPF_Project_Logic
         /// </summary>
         /// <returns>Client Object</returns>
         public Client BuildSampleClient() {
+            string type = sampleClient.DataType.ToString();
             sampleClient.selfContact.FirstName = "Svenk";
             sampleClient.selfContact.LastName = "Svenk";
             sampleClient.selfContact.Phone = "01255788957";
@@ -41,6 +42,7 @@ namespace WPF_Project_Logic
         /// </summary>
         /// <returns>Project Object</returns>
         public Project BuildSampleProject() {
+            string type = sampleProject.DataType.ToString();
             sampleProject.Name = "RBA mobilno bankarstvo";
             sampleProject.Id = helper.generateID();
             sampleProject.AssociatedClient = BuildSampleClient();
@@ -54,8 +56,8 @@ namespace WPF_Project_Logic
         /// <returns>Agency Object</returns>
         public Agency BuildSampleAgency()
         {
-            // Build a new Contact object with data
             Contact agencyContact = BuildSampleContact();
+            string type = sampleAgency.DataType.ToString();
             sampleAgency.selfContact = agencyContact;
             sampleAgency.additionalContacts.Add(agencyContact);
             sampleAgency.Id = helper.generateID();
@@ -67,6 +69,7 @@ namespace WPF_Project_Logic
         /// </summary>
         /// <returns>Contact Object</returns>
         public Contact BuildSampleContact() {
+            string type = sampleContact.DataType.ToString();
             sampleContact.FirstName = "Svenk";
             sampleContact.LastName = "Svenk";
             sampleContact.Email = "blabla@gmail.de";
@@ -79,6 +82,7 @@ namespace WPF_Project_Logic
         // An address to feed to the contact
         public Address BuildSampleAddress()
         {
+            string type = sampleAddress.DataType.ToString();
             sampleAddress.StreetName = "Potočka";
             sampleAddress.StreetNumber = 61;
             sampleAddress.ZipCode = 84260;

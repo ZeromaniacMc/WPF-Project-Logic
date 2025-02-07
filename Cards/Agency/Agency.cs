@@ -29,6 +29,17 @@ namespace WPF_Project_Logic.Cards.Agency {
 
         private readonly DataType dataType = DataType.Agency;
 
+        public DataType DataType
+        {
+            get { return dataType; }
+            // No setter! This is a read-only property.
+        }
+
+        public override int Id
+        {
+            get { return agencyId; }
+            set { agencyId = value; }
+        }
 
         public override Contact selfContact
         {
@@ -36,10 +47,6 @@ namespace WPF_Project_Logic.Cards.Agency {
             set { agencySelf = value; }
         }
 
-        public override int Id {
-            get { return agencyId; }
-            set { agencyId = value; }
-        }
 
         // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
         public override List<Contact> additionalContacts
@@ -52,12 +59,6 @@ namespace WPF_Project_Logic.Cards.Agency {
         {
             get { return agencyNotes; }
             set { agencyNotes = value; }
-        }
-
-        public DataType DataType
-        {
-            get { return dataType; }
-            // No setter! This is a read-only property.
         }
 
 

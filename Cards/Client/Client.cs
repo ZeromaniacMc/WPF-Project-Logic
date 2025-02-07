@@ -36,10 +36,10 @@ namespace WPF_Project_Logic.Cards.Client {
 
 
 
-        public override Contact selfContact 
+        public DataType DataType
         {
-            get { return clientSelf; }
-            set { clientSelf = value; }
+            get { return dataType; }
+            // No setter! This is a read-only property.
         }
 
         public override int Id
@@ -47,7 +47,18 @@ namespace WPF_Project_Logic.Cards.Client {
             get { return clientId; }
             set { clientId = value; }
         }
+        public DateTime firstHire
+        {
+            get { return clientFirstHire; }
+            set { clientFirstHire = value; }
+        }
 
+        public override Contact selfContact 
+        {
+            get { return clientSelf; }
+            set { clientSelf = value; }
+        }
+        
         // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
         // This list describes people the user may contact who also work at the client (which is a company).
         public override List<Contact> additionalContacts
@@ -56,23 +67,13 @@ namespace WPF_Project_Logic.Cards.Client {
             set { clientContacts = value; }
         }
 
-        public DateTime firstHire 
-        {
-            get { return clientFirstHire; }
-            set { clientFirstHire = value; }
-        }
-
         public override List<Note> Notes
         {
             get { return clientNotes; }
             set { clientNotes = value; }
         }
 
-        public DataType DataType
-        {
-            get { return dataType; }
-            // No setter! This is a read-only property.
-        }
+        
 
 
         

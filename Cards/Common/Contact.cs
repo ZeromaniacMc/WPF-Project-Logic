@@ -7,11 +7,19 @@ namespace WPF_Project_Logic.Cards.Common
 
         private List<Address> contactAddress = new List<Address>();
 
+        public DataType DataType
+        {
+            get { return dataType; }
+            // No setter! This is a read-only property.
+        }
+
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }
         public string Note { get; set; }
+
+        private readonly DataType dataType = DataType.Contact;
 
         public List<Address> ContactAdress
         {
@@ -38,23 +46,6 @@ namespace WPF_Project_Logic.Cards.Common
             Phone = phone;
             ContactAdress = contactAddress;
             Note = note;
-        }
-    }
-
-    public class Address
-    {
-        public string StreetName { get; set; }
-        public int StreetNumber { get; set; }
-        public int ZipCode { get; set; }
-        public string City { get; set; }
-        public string Country { get; set; }
-        public Address(string streetName, int streetNumber, int zipCode, string city, string country)
-        {
-            StreetName = streetName;
-            StreetNumber = streetNumber;
-            ZipCode = zipCode;
-            City = city;
-            Country = country;
         }
     }
 }
