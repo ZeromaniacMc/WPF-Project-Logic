@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using WPF_Project_Logic.Cards.Common.Agency;
+﻿using System.Collections.Generic;
 
 namespace WPF_Project_Logic.Cards.Common.Card {
     public abstract class Card {

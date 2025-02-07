@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WPF_Project_Logic.Cards.Agency;
+﻿using System.Collections.Generic;
 using WPF_Project_Logic.Cards.Common;
 using WPF_Project_Logic.Cards.Common.Helper;
 
