@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace WPF_Project_Logic.Cards.Common
 {
@@ -26,6 +27,9 @@ namespace WPF_Project_Logic.Cards.Common
             get { return contactAddress; }
             set { contactAddress = value; }
         }
+        public Contact()
+        {
+        }
 
         // Constructor without a note
         public Contact(string firstName, string lastName, string email, string phone, List<Address> contactAddress)
@@ -38,6 +42,7 @@ namespace WPF_Project_Logic.Cards.Common
         }
 
         // Overloaded constructor with a note
+        //[JsonConstructor]
         public Contact(string firstName, string lastName, string email, string phone, List<Address> contactAddress, string note)
         {
             FirstName = firstName;

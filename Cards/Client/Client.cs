@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using WPF_Project_Logic.Cards.Common;
 using WPF_Project_Logic.Cards.Common.Card;
+using WPF_Project_Logic.Cards.Common.Helper;
 
 namespace WPF_Project_Logic.Cards.Client {
     public class Client : Card {
@@ -15,7 +16,7 @@ namespace WPF_Project_Logic.Cards.Client {
         /// <summary>
         /// <param name="clientId"> The automatically generated ID of the client as int. </param>
         /// </summary>
-        private int clientId;
+        private int clientId = Helper.generateID();
 
         /// <summary>
         /// A List of contacts for the client
@@ -42,18 +43,19 @@ namespace WPF_Project_Logic.Cards.Client {
             // No setter! This is a read-only property.
         }
 
-        public override int Id
+        public override int ID
         {
             get { return clientId; }
             set { clientId = value; }
         }
+
         public DateTime firstHire
         {
             get { return clientFirstHire; }
             set { clientFirstHire = value; }
         }
 
-        public override Contact selfContact 
+        public override Contact SelfContact 
         {
             get { return clientSelf; }
             set { clientSelf = value; }
@@ -61,7 +63,7 @@ namespace WPF_Project_Logic.Cards.Client {
         
         // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
         // This list describes people the user may contact who also work at the client (which is a company).
-        public override List<Contact> additionalContacts
+        public override List<Contact> AdditionalContacts
         {
             get { return clientContacts; }
             set { clientContacts = value; }
@@ -77,12 +79,14 @@ namespace WPF_Project_Logic.Cards.Client {
 
 
         
-        public Client(Contact selfContact, int id, List<Contact> additionalContacts) : base(selfContact, id, additionalContacts)
+        public Client(Contact SelfContact, int ID, List<Contact> AdditionalContacts) 
+            : base(SelfContact, ID, AdditionalContacts)
         {
 
         }
 
-        public Client(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> notes) : base(selfContact, id, additionalContacts, notes)
+        public Client(Contact SelfContact, int ID, List<Contact> AdditionalContacts, List<Note> notes) 
+            : base(SelfContact, ID, AdditionalContacts, notes)
         {
             // Calls base constructor, provides an empty list of notes as default.
         }

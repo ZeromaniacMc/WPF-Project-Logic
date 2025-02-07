@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using WPF_Project_Logic.Cards.Common;
 using WPF_Project_Logic.Cards.Common.Card;
+using WPF_Project_Logic.Cards.Common.Helper;
 
 namespace WPF_Project_Logic.Cards.Agency {
     internal class Agency : Card {
@@ -15,7 +16,7 @@ namespace WPF_Project_Logic.Cards.Agency {
         /// <summary>
         /// <param name="agencyId"> The automatically generated ID of the agency as int. </param>
         /// </summary>
-        private int agencyId;
+        private int agencyId = Helper.generateID();
 
         /// <summary>
         /// A List of contacts for the agency
@@ -35,13 +36,13 @@ namespace WPF_Project_Logic.Cards.Agency {
             // No setter! This is a read-only property.
         }
 
-        public override int Id
+        public override int ID
         {
             get { return agencyId; }
             set { agencyId = value; }
         }
 
-        public override Contact selfContact
+        public override Contact SelfContact
         {
             get { return agencySelf; }
             set { agencySelf = value; }
@@ -49,7 +50,7 @@ namespace WPF_Project_Logic.Cards.Agency {
 
 
         // As we want to add multiple contacts later, we need a modular list of contacts, which are also lists.
-        public override List<Contact> additionalContacts
+        public override List<Contact> AdditionalContacts
         {
             get { return agencyContacts; }
             set { agencyContacts = value; }
@@ -62,12 +63,14 @@ namespace WPF_Project_Logic.Cards.Agency {
         }
 
 
-        public Agency(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> Notes) : base(selfContact, id, additionalContacts, Notes)
+        public Agency(){}
+        public Agency(Contact SelfContact, int ID, List<Contact> AdditionalContacts, List<Note> Notes) 
+            : base(SelfContact, ID, AdditionalContacts, Notes)
         {
 
         }
-        public Agency(Contact selfContact, int id, List<Contact> additionalContacts)
-        : this(selfContact, id, additionalContacts, new List<Note>())
+        public Agency(Contact SelfContact, int ID, List<Contact> AdditionalContacts)
+        : this(SelfContact, ID, AdditionalContacts, new List<Note>())
         {
             // Calls base constructor, provides an empty list of notes as default.
         }

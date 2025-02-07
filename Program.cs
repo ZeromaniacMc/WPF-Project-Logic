@@ -1,16 +1,16 @@
 ﻿using System;
-using WPF_Project_Logic.Cards.Project;
+using System.Text.Json;
+using System.Threading.Tasks;
 using WPF_Project_Logic.Cards.Agency;
 using WPF_Project_Logic.Cards.Client;
 using WPF_Project_Logic.Cards.Common;
+using WPF_Project_Logic.Cards.Company;
 using WPF_Project_Logic.FileIO;
-using System.IO;
-using System.Text;
 
 namespace WPF_Project_Logic {
     internal class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
 
             // Needed for croatian characters in console
@@ -47,10 +47,10 @@ namespace WPF_Project_Logic {
             // agencies.json
             // companies.json
 
+            /*
             // Write test
             if (iO.CheckDirectoryExists(directory, false))
             {
-                Console.WriteLine("Directory exists");
                 //CommonIO.WriteTextAsync(directory, filename, serializer.SerializeJSON(client), false).Wait();
                 //CommonIO.WriteTextAsync(directory, filename, serializer.SerializeJSON(contact), false).Wait();
                 CommonIO.WriteTextAsync(directory, filename, serializer.SerializeJSON(agency), false).Wait();
@@ -61,21 +61,52 @@ namespace WPF_Project_Logic {
                 Console.WriteLine("Directory does not exist, creating it now.");
                 iO.CreateDirectory(directory, false);
             }
-            
-            /*
+
+            */
+
             // Read test
-            if (iO.CheckFileExists(filename, directory, false))
+            object deserializedObject = await JSON.DeserializeJSONAsync(await CommonIO.ReadTextAsync(directory, filename, false));
+
+            if (deserializedObject != null)
             {
-                Console.WriteLine("File exists");
-                Console.WriteLine(CommonIO.ReadTextAsync(directory, filename, false).Result);
+                if (deserializedObject is Contact)
+                {
+                    Console.WriteLine($"Deserialized as Contact. \nFirstName: {contact.FirstName}");
+                    Console.WriteLine($"DataType: {(int)DataType.Contact}"); // Print DataType enum value as int
+                }
+                else if (deserializedObject is Address)
+                {
+                    Console.WriteLine($"Deserialized as Address. \nCity: {address.City}");
+                    Console.WriteLine($"DataType: {(int)DataType.Address}"); // Print DataType enum value as int
+                }
+                else if (deserializedObject is Company)
+                {
+                    Console.WriteLine($"Deserialized as Company. \nName: {((Company)deserializedObject).Name}");
+                    Console.WriteLine($"DataType: {(int)DataType.Company}"); // Print DataType enum value as int
+                }
+                else if (deserializedObject is Agency)
+                {
+                    Console.WriteLine($"Deserialized as Agency.\n");
+                    Console.WriteLine($"DataType: {(int)DataType.Agency}"); // Print DataType enum value as int
+                    Console.WriteLine($"DataType: {DataType.Agency}"); // Print DataType as type string
+                    Console.WriteLine($"ID: {((Agency)deserializedObject).ID}");
+                    Console.WriteLine($"First Name: {((Agency)deserializedObject).SelfContact.FirstName}");
+                    Console.WriteLine($"Last Name: {((Agency)deserializedObject).SelfContact.LastName}");
+                }
+                else if (deserializedObject is Client)
+                {
+                    Console.WriteLine($"Deserialized as Client. \nName: {((Client)deserializedObject).SelfContact.FirstName}");
+                    Console.WriteLine($"DataType: {(int)DataType.Client}"); // Print DataType enum value as int
+                }
+                else
+                {
+                    Console.WriteLine("Deserialized object is of an unexpected type.");
+                }
             }
             else
             {
-                Console.WriteLine($"{directory}{filename}");
-                Console.WriteLine("File does not exist");
+                Console.WriteLine("Failed to deserialize JSON.");
             }
-            */
-
             Console.ReadLine();
         }
     }

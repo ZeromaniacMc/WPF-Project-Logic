@@ -25,14 +25,13 @@ namespace WPF_Project_Logic
         /// <returns>Client Object</returns>
         public Client BuildSampleClient() {
             string type = sampleClient.DataType.ToString();
-            sampleClient.selfContact.FirstName = "Svenk";
-            sampleClient.selfContact.LastName = "Svenk";
-            sampleClient.selfContact.Phone = "01255788957";
-            sampleClient.selfContact.Email = "schglibglob@gmail.com";
-            sampleClient.selfContact.Equals(sampleContact);
+            sampleClient.SelfContact.FirstName = "Svenk";
+            sampleClient.SelfContact.LastName = "Svenk";
+            sampleClient.SelfContact.Phone = "01255788957";
+            sampleClient.SelfContact.Email = "schglibglob@gmail.com";
+            sampleClient.SelfContact.Equals(sampleContact);
             sampleClient.Notes.Add(new Note("First Note", "This is the first note",System.DateTime.Now));
 
-            sampleClient.Id = helper.generateID();
 
             return sampleClient;
         }
@@ -43,8 +42,7 @@ namespace WPF_Project_Logic
         /// <returns>Project Object</returns>
         public Project BuildSampleProject() {
             string type = sampleProject.DataType.ToString();
-            sampleProject.Name = "RBA mobilno bankarstvo";
-            sampleProject.Id = helper.generateID();
+            sampleProject.ProjectName = "RBA mobilno bankarstvo";
             sampleProject.AssociatedClient = BuildSampleClient();
 
             return sampleProject; 
@@ -58,9 +56,8 @@ namespace WPF_Project_Logic
         {
             Contact agencyContact = BuildSampleContact();
             string type = sampleAgency.DataType.ToString();
-            sampleAgency.selfContact = agencyContact;
-            sampleAgency.additionalContacts.Add(agencyContact);
-            sampleAgency.Id = helper.generateID();
+            sampleAgency.SelfContact = agencyContact;
+            sampleAgency.AdditionalContacts.Add(agencyContact);
             return sampleAgency;
         }
 

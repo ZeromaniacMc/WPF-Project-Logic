@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
-using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace WPF_Project_Logic.FileIO
 {
@@ -55,6 +52,13 @@ namespace WPF_Project_Logic.FileIO
             {
                 await sourceStream.WriteAsync(encodedText, 0, encodedText.Length);
             };
+            if (debug)
+            {
+                Console.WriteLine($"------------ Debug data was requested ------------\n" +
+                    $"Target directory: {directory}\n" +
+                    $"Target file name: {filename}\n" +
+                    $"File path assembled: {filepath}");
+            }
         }
 
 
@@ -73,6 +77,13 @@ namespace WPF_Project_Logic.FileIO
                 {
                     string text = Encoding.Unicode.GetString(buffer, 0, numRead);
                     sb.Append(text);
+                }
+                if (debug)
+                {
+                    Console.WriteLine($"------------ Debug data was requested ------------\n" +
+                        $"Target directory: {directory}\n" +
+                        $"Target file name: {filename}\n" +
+                        $"File path assembled: {filepath}");
                 }
                 return sb.ToString();
             }

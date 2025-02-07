@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using WPF_Project_Logic.Cards.Common;
+using WPF_Project_Logic.Cards.Common.Helper;
 
 namespace WPF_Project_Logic.Cards.Project {
     public class Project
@@ -13,7 +14,7 @@ namespace WPF_Project_Logic.Cards.Project {
         /// <summary>
         /// <param name="projectId"> The automatically generated ID of the project as int. </param>
         /// </summary>
-        private int projectId;
+        private int projectId = Helper.generateID();
 
         /// <summary>
         /// <param name="associatedClient"> The <c>Client Object</c> associated with this project. </param>
@@ -27,13 +28,13 @@ namespace WPF_Project_Logic.Cards.Project {
 
 
 
-        public string Name
+        public string ProjectName
         {
             get { return projectName; }
             set { projectName = value; }
         }
 
-        public int Id
+        public int ID
         {
             get { return projectId; }
             set { projectId = value; }
@@ -55,12 +56,13 @@ namespace WPF_Project_Logic.Cards.Project {
             // No setter! This is a read-only property.
         }
 
-        public Project(string projectName, int projectId, Client.Client associatedClient, List<Note> notes)
+        public Project() {}
+        public Project(string ProjectName, int ID, Client.Client AssociatedClient, List<Note> notes)
         {
 
         }
 
-        public Project(string projectName, int projectId, Client.Client associatedClient)
+        public Project(string ProjectName, int ID, Client.Client AssociatedClient)
         {
 
         }

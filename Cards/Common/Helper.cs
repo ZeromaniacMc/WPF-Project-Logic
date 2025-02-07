@@ -11,7 +11,7 @@ namespace WPF_Project_Logic.Cards.Common.Helper {
         /// </summary>
         public static string listSeparator = ", ";
 
-        public int generateID() {
+        public static int generateID() {
             return random.Next(1, 1000);
         }
 

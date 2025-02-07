@@ -6,27 +6,27 @@ namespace WPF_Project_Logic.Cards.Common.Card {
     public abstract class Card {
 
 
-        public abstract Contact selfContact { get; set; }
-        public abstract int Id { get; set; }
-        public abstract List<Contact> additionalContacts { get; set; }
+        public abstract Contact SelfContact { get; set; }
+        public abstract int ID { get; set; }
+        public abstract List<Contact> AdditionalContacts { get; set; }
 
         public abstract List<Note> Notes { get; set; }
 
-
-        protected Card(Contact selfContact, int id, List<Contact> additionalContacts, List<Note> Notes)
+        protected Card() { }
+        protected Card(Contact SelfContact, int ID, List<Contact> AdditionalContacts, List<Note> Notes)
         {
-            this.selfContact = selfContact;
-            this.Id = id;
-            this.additionalContacts = additionalContacts;
+            this.SelfContact = SelfContact;
+            this.ID = ID;
+            this.AdditionalContacts = AdditionalContacts;
             this.Notes = Notes;
         }
 
-        protected Card(Contact selfContact, int id, List<Contact> additionalContacts)
-            : this(selfContact, id, additionalContacts, new List<Note>())
+        protected Card(Contact SelfContact, int ID, List<Contact> AdditionalContacts)
+            : this(SelfContact, ID, AdditionalContacts, new List<Note>())
         {
-            this.selfContact = selfContact;
-            this.Id = id;
-            this.additionalContacts = additionalContacts;
+            this.SelfContact = SelfContact;
+            this.ID = ID;
+            this.AdditionalContacts = AdditionalContacts;
         }
 
         

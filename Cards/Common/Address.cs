@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace WPF_Project_Logic.Cards.Common
 {
     public class Address
@@ -21,7 +16,8 @@ namespace WPF_Project_Logic.Cards.Common
         public string Country { get; set; }
 
         private readonly DataType dataType = DataType.Address;
-        
+
+        public Address() {}
         public Address(string streetName, int streetNumber, int zipCode, string city, string country)
         {
             StreetName = streetName;
